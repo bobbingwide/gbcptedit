@@ -42,6 +42,7 @@
  */
 function gbcptedit_setup_theme() {
     add_filter( 'register_post_type_args', 'gbcptedit_register_post_type_args', 10, 2 );
+    //add_filter( 'is_post_type_viewable', 'gbcptedit_is_post_type_viewable', 10, 2 );
 }
 
 function gbcptedit_loaded() {
@@ -67,6 +68,7 @@ function gbcptedit_register_post_type_args( $args, $post_type ) {
         case 'wp_block':
         case 'wp_template':
         case 'wp_template_part':
+        case 'wp_global_styles':
         case 'wp_navigation':
             $args = gbcptedit_adjust( $args, $post_type );
             break;
@@ -98,6 +100,27 @@ function gbcptedit_adjust( $args, $post_type ) {
 
     //gob();
     return $args;
+}
+
+/**
+ * Returns true if the post type is viewable.
+ *
+ * This new filter, introduced in WordPress 5.9 appears to be very silly indeed.
+ * It can get called hundreds of times and appears to make no difference if
+ * you try to turn false into true!
+ *
+ *
+ * @param $is_viewable
+ * @param $post_type
+ * @return bool|mixed
+ */
+
+function gbcptedit_is_post_type_viewable( $is_viewable, $post_type ) {
+    switch ( $post_type->name ) {
+        case 'wp_global_styles':
+            return false;
+    }
+    return $is_viewable;
 }
 
 gbcptedit_loaded();
