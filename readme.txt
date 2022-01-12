@@ -1,14 +1,14 @@
-# gbcptedit 
-* Contributors: bobbingwide
-* Donate link: https://www.oik-plugins.com/oik/oik-donate/
-* Tags: oik, plugin, unloader
-* Requires at least: 5.8.2
-* Tested up to: 5.9-RC2
-* Stable tag: 0.0.0
+=== gbcptedit ===
+Contributors: bobbingwide
+Donate link: https://www.oik-plugins.com/oik/oik-donate/
+Tags: oik, plugin, unloader
+Requires at least: 5.8.2
+Tested up to: 5.9-RC2
+Stable tag: 0.0.0
 
 Enable editing of Gutenberg's Custom Post Type's content.
 
-## Description 
+== Description ==
 Gutenberg Custom Post Type Edit ( gbcptedit ) is a simple plugin to enable editing of the Custom Post Types created by the Gutenberg plugin, which are now part of WordPress 5.9
 
 The Gutenberg block editor created a number of new Custom Post Types:
@@ -42,28 +42,28 @@ This can come in very handy during:
 
 If your site has multiple users you may want to limit this plugin's use to your development environment.
 
-## Installation 
+== Installation ==
 1. Upload the contents of the gbcptedit plugin to the `/wp-content/plugins/gbcptedit' directory
 1. Activate the gbcptedit plugin through the 'Plugins' menu in WordPress
 
 
-## Frequently Asked Questions 
+== Frequently Asked Questions ==
 
-# What is this plugin for? 
+= What is this plugin for? =
 To enable you to see what Gutenberg's created without having to resort to phpMyAdmin.
 Just view the content in the editor.
 
 
-## Screenshots 
-1.
-## Upgrade Notice 
+== Screenshots ==
+1. 
+== Upgrade Notice ==
 
-# 0.0.0 
+= 0.0.0 =
 Prototype version to avoid manual configuration using oik-types.
 
-## Changelog 
-# 0.0.0 
-* Added: Brand new plugin.
+== Changelog ==
+= 0.0.0 =
+* Added: Brand new plugin. 
 * Tested: With WordPress 5.8.2 and WordPres 5.9-RC3 and WordPress Multi Site
 * Tested: With Gutenberg 12.3.0
 * Tested: With PHP 8.0
