@@ -19,13 +19,21 @@ post type definitions to enable viewing of the post contents. I use my oik-types
 
 For each development environment it's a manual process to define the CPT overrides. 
 I'm currently debugging what should be a simple problem associated with the new CPT `wp_navigation`. 
-It would be a lot easier if I could simple install and activate a plugin that automates the manual process
+It would be a lot easier if I could simply install and activate a plugin that automates the manual process,
 plus the extra logic that I've added to my Fizzie FSE theme.
 
 
 ### Requirement
 
 Ability to easily turn on an off editing of Gutenberg related Custom Post Types.
+
+I want to find out whether or not a navigation menu imported into WordPress from a template part
+has the same blocks as it started with.
+Specifically. What happens to this block, which was generated using Gutenberg 12.3.0, when using WordPress 5.9 with Gutenberg deactivated.
+
+```
+<!-- wp:home-link {"label":"Home"} /-->
+```
 
 ### Proposed solution
 - [ ] Develop a simple plugin called gbcptedit - standing for GutenBerg Custom Post Type EDIT
