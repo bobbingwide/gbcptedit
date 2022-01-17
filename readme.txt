@@ -55,7 +55,8 @@ Just view the content in the editor.
 
 
 == Screenshots ==
-1. 
+1. None 
+
 == Upgrade Notice ==
 
 = 0.0.0 =
@@ -64,6 +65,6 @@ Prototype version to avoid manual configuration using oik-types.
 == Changelog ==
 = 0.0.0 =
 * Added: Brand new plugin. 
-* Tested: With WordPress 5.8.2 and WordPres 5.9-RC3 and WordPress Multi Site
-* Tested: With Gutenberg 12.3.0
+* Tested: With WordPress 5.8.2 and WordPres 5.9-RC2 and WordPress Multi Site
+* Tested: With Gutenberg 12.3.2
 * Tested: With PHP 8.0

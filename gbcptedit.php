@@ -42,7 +42,7 @@
  */
 function gbcptedit_setup_theme() {
     add_filter( 'register_post_type_args', 'gbcptedit_register_post_type_args', 10, 2 );
-    //add_filter( 'is_post_type_viewable', 'gbcptedit_is_post_type_viewable', 10, 2 );
+    // add_filter( 'is_post_type_viewable', 'gbcptedit_is_post_type_viewable', 10, 2 );
 }
 
 function gbcptedit_loaded() {
@@ -50,15 +50,20 @@ function gbcptedit_loaded() {
     add_action( 'post_edit_form_tag', 'gbcptedit_enable_wp_navigation_editor');
 }
 
-
+/**
+ * Re-enables the content editor for wp_navigation posts.
+ *
+ * Note: remove_action won't fail if the callback isn't registered. This logic works for WordPress 5.9+ with/without Gutenberg.
+ *
+ * @param $post
+ */
 function gbcptedit_enable_wp_navigation_editor( $post ) {
     remove_action( 'edit_form_after_title', '_disable_content_editor_for_navigation_post_type' );
     remove_action( 'edit_form_after_title', 'gutenberg_disable_content_editor_for_navigation_post_type');
 }
 
-
 /**
- * Implements overrides to certain GB CPTs.
+ * Implements overrides to certain Gutenberg CPTs.
  *
  * Extends what may already have been altered by oik-types.
  */
@@ -95,10 +100,7 @@ function gbcptedit_adjust( $args, $post_type ) {
     $args['show_in_menu'] = true;
     $args['_builtin'] = false;
     $args['supports'][] = 'clone';
-    bw_trace2( $args, "args after", false );
-    //print_r( $args );
-
-    //gob();
+    //bw_trace2( $args, "args after", false );
     return $args;
 }
 
@@ -109,16 +111,14 @@ function gbcptedit_adjust( $args, $post_type ) {
  * It can get called hundreds of times and appears to make no difference if
  * you try to turn false into true!
  *
- *
  * @param $is_viewable
  * @param $post_type
  * @return bool|mixed
  */
-
 function gbcptedit_is_post_type_viewable( $is_viewable, $post_type ) {
     switch ( $post_type->name ) {
         case 'wp_global_styles':
-            return false;
+            return true;
     }
     return $is_viewable;
 }
