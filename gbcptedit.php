@@ -7,7 +7,7 @@
  * Author URI:      https://bobbingwide.com/about-bobbing-wide
  * Text Domain:     gbcptedit
  * Domain Path:     /languages
- * Version:         0.0.0
+ * Version:         0.0.1
  * License: GPLv3 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
@@ -98,6 +98,7 @@ function gbcptedit_adjust( $args, $post_type ) {
     $args['public'] = true;
     $args['show_ui'] = true;
     $args['show_in_menu'] = true;
+    $args['show_in_nav_menus'] = false;
     $args['_builtin'] = false;
     $args['supports'][] = 'clone';
     //bw_trace2( $args, "args after", false );
