@@ -48,6 +48,7 @@ function gbcptedit_setup_theme() {
 function gbcptedit_loaded() {
     add_action( 'setup_theme', 'gbcptedit_setup_theme'  );
     add_action( 'post_edit_form_tag', 'gbcptedit_enable_wp_navigation_editor');
+    add_action( 'rest_api_init', 'gbcptedit_rest_api_init', 100 );
 }
 
 /**
@@ -122,6 +123,10 @@ function gbcptedit_is_post_type_viewable( $is_viewable, $post_type ) {
             return true;
     }
     return $is_viewable;
+}
+
+function gbcptedit_rest_api_init() {
+
 }
 
 gbcptedit_loaded();
