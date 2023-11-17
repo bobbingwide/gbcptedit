@@ -7,11 +7,11 @@
  * Author URI:      https://bobbingwide.com/about-bobbing-wide
  * Text Domain:     gbcptedit
  * Domain Path:     /languages
- * Version:         0.0.1
+ * Version:         0.0.2
  * License: GPLv3 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
- * Copyright 2022 Bobbing Wide (email : herb@bobbingwide.com )
+ * Copyright 2022,2023 Bobbing Wide (email : herb@bobbingwide.com )
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2,

@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: oik, plugin, unloader
 * Requires at least: 5.8.2
-* Tested up to: 5.9-RC3
-* Stable tag: 0.0.1
+* Tested up to: 6.4.1
+* Stable tag: 0.0.2
 
 Enable editing of Gutenberg's Custom Post Type's content.
 
@@ -59,6 +59,9 @@ Just view the content in the editor.
 1. None
 
 ## Upgrade Notice 
+# 0.0.2 
+Update for support for PHP 8.1 and PHP 8.2
+
 # 0.0.1 
 Update so that the Gutenberg CPT's don't have Custom Navigation link variations created for them
 
@@ -66,7 +69,14 @@ Update so that the Gutenberg CPT's don't have Custom Navigation link variations 
 Prototype version to avoid manual configuration using oik-types.
 
 ## Changelog 
-# 0.0.0 
+# 0.0.2 
+* Changed: Add PHPUnit test for PHP 8.1 and PHP 8.2 #2
+* Tested: With WordPress 6.4.1
+* Tested: With Gutenberg 17.0.2
+* Tested: With PHP 8.1 and PHP 8.2
+* Tested: With PHPUnit 9.6
+
+# 0.0.1 
 * Changed: Set show_in_nav_menus to false
 * Tested: With WordPress 5.9-RC3
 * Tested: With Gutenberg 12.4.0
