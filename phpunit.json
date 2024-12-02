@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.124281">
-    <testsuite name="gbcptedit" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.124281">
-      <testsuite name="Tests_load_libs" file="C:\apache\htdocs\wordpress\wp-content\plugins\gbcptedit\tests\test-a-load-php.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.124281">
-        <testcase name="test_load_plugin" class="Tests_load_libs" classname="Tests_load_libs" file="C:\apache\htdocs\wordpress\wp-content\plugins\gbcptedit\tests\test-a-load-php.php" line="28" assertions="1" time="0.124281"/>
+  <testsuite name="C:\apache\htdocs\wordpress\wp-content\plugins\gbcptedit\phpunit.xml.dist" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.061971">
+    <testsuite name="gbcptedit" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.061971">
+      <testsuite name="Tests_load_libs" file="C:\apache\htdocs\wordpress\wp-content\plugins\gbcptedit\tests\Tests_load_libs.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.061971">
+        <testcase name="test_load_plugin" file="C:\apache\htdocs\wordpress\wp-content\plugins\gbcptedit\tests\Tests_load_libs.php" line="28" class="Tests_load_libs" classname="Tests_load_libs" assertions="1" time="0.061971"/>
       </testsuite>
     </testsuite>
   </testsuite>

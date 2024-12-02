@@ -49,6 +49,9 @@ function gbcptedit_loaded() {
     add_action( 'setup_theme', 'gbcptedit_setup_theme'  );
     add_action( 'post_edit_form_tag', 'gbcptedit_enable_wp_navigation_editor');
     add_action( 'rest_api_init', 'gbcptedit_rest_api_init', 100 );
+	add_filter( 'user_has_cap', 'gbcptedit_user_has_cap', 10, 4);
+	add_filter( 'post_row_actions', 'gbcptedit_post_row_actions', 10, 2);
+	add_filter( 'page_row_actions', 'gbcptedit_post_row_actions', 10, 2);
 }
 
 /**
@@ -102,7 +105,9 @@ function gbcptedit_adjust( $args, $post_type ) {
     $args['show_in_nav_menus'] = false;
     $args['_builtin'] = false;
     $args['supports'][] = 'clone';
-    //bw_trace2( $args, "args after", false );
+	//unset( $args['_edit_link']);
+	//$args['_edit_link'] = "post.php?post_type=$post_type&post=%s";
+    bw_trace2( $args, "args after", false );
     return $args;
 }
 
@@ -129,4 +134,82 @@ function gbcptedit_rest_api_init() {
 
 }
 
+/**
+ * Removes delete_post capability to workaround TRAC #61716
+ *
+ * @param $allcaps
+ * @param $caps
+ * @param $args
+ * @param $user
+ *
+ * @return mixed
+ */
+function gbcptedit_user_has_cap( $allcaps, $caps, $args, $user) {
+	//bw_trace2();
+	if ( $args[0] === 'delete_post') {
+		//bw_trace2();
+		//$allcaps[ $caps[0]] = false;
+
+	}
+
+
+	return $allcaps;
+}
+
+/**
+ * Alters the post row actions
+ *
+ * - Adds block editor where edit is for site editor.
+ * - Reinstates delete_post capability.
+ *
+ * [edit] => (string) "<a href="https://s.b/wordpress/wp-admin/site-editor.php?postType=wp_template&postId=fizzie%2F%2Fhome&canvas=edit" aria-label="Edit &#8220;Blog Home&#8221;">Edit</a>"
+ * [inline hide-if-no-js] => (string) "<button type="button" class="button-link editinline" aria-label="Quick edit &#8220;Blog Home&#8221; inline" aria-expanded="false">Quick&nbsp;Edit</button>"
+ * [view] => (string) "<a href="https://s.b/wordpress/?post_type=wp_template&#038;p=21383&#038;preview=true" rel="bookmark" aria-label="Preview &#8220;Blog Home&#8221;">Preview</a>"
+ *
+ *
+ * [edit] => (string) "<a href="https://s.b/wordpress/wp-admin/post.php?post=6266&amp;action=edit" aria-label="Edit &#8220;Block List&#8221;">Edit</a>"
+ *
+ * @param $actions
+ * @param $post
+ *
+ * @return mixed
+ */
+
+function gbcptedit_post_row_actions( $actions, $post ) {
+	bw_trace2();
+	switch ( $post->post_type ) {
+		case 'wp_template':
+		case 'wp_template_part':
+
+			foreach ( $actions as $action => $html ) {
+				switch ( $action ) {
+					case 'edit':
+						//$actions['edit']=gbcptedit_edit_link( $post );
+						break;
+					default:
+				}
+			}
+			break;
+	}
+	//$actions['delete'] = gbcptedit_delete_link( $post);
+
+
+	return $actions;
+}
+
+function gbcptedit_edit_link( $post ) {
+	$html = '<a href="';
+	$html .= admin_url( sprintf( 'post.php?post=%d', $post->ID ) );
+	$html .= '&amp;action=edit';
+	$html .= '">Block edit</a>';
+	return $html;
+}
+
+function gbcptedit_delete_link( $post ) {
+	$html = '<a href="';
+	$html .= admin_url( sprintf( 'post.php?post=%d', $post->ID) );
+	$html .= '&amp;action=delete';
+	$html .= '">Delete</a>';
+	return $html;
+}
 gbcptedit_loaded();
